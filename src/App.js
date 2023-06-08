@@ -1,11 +1,12 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-import NotFound from './pages/404';
-import NotAuthorized from './pages/403';
-import { AppConfig } from './AppConfig';
-import { Suspense } from 'react';
-import AuthGuard from './guard/AuthGuard';
-import DashboardEmployee from './layout/employee/DashboardEmployee';
+import NotFound from "./pages/404";
+import NotAuthorized from "./pages/403";
+import { AppConfig } from "./AppConfig";
+import { Suspense } from "react";
+import AuthGuard from "./guard/AuthGuard";
+import DashboardEmployee from "./layout/employee/DashboardEmployee";
+import Sales from "./component/employee/sales/Sales";
 
 function App() {
   return (
@@ -16,14 +17,14 @@ function App() {
             <Route path="*" element={<NotFound />} />
             <Route path="/layout-guard-roles" element={<NotAuthorized />} />
 
-            <Route path="/" element={<Navigate replace to="/admin" />} />
+            <Route path="/" element={<Navigate replace to="/admin/sales" />} />
 
             <Route
-              path="/admin"
+              path="/admin/sales"
               element={
                 <AuthGuard>
                   <DashboardEmployee>
-                    <h1>Hello world</h1>
+                    <Sales />
                   </DashboardEmployee>
                 </AuthGuard>
               }

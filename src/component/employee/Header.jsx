@@ -9,6 +9,7 @@ import {
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import "./style-header.css";
+import AvtDefault from "../../assets/images/328693761_727939795557043_1972102579202651860_n.jpg";
 
 const { Header } = Layout;
 
@@ -29,7 +30,7 @@ const HeaderComponent = ({ collapsed, toggleCollapsed }) => {
 
   return (
     <div className="sticky-header">
-      <Header
+      <Header 
         className={collapsed ? "collapsed" : ""}
         style={{
           background: "#fff",
@@ -75,8 +76,12 @@ const HeaderComponent = ({ collapsed, toggleCollapsed }) => {
               onClick={(e) => e.preventDefault()}
               style={{ display: "flex", alignItems: "center" }}
             >
-              <Avatar icon={<UserOutlined />} size="small" />
-              <span style={{ marginLeft: 8 }}>User</span>
+              <img className="img_avatar" src={AvtDefault} alt="User Avatar" />
+              <span
+                style={{ marginLeft: 8, fontWeight: 500, color: "#4f4f4f"}}
+              >
+                Nguyễn Công Thắng
+              </span>
             </Link>
           </Dropdown>
         </div>

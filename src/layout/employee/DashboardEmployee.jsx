@@ -10,6 +10,11 @@ const DashboardEmployee = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const toggleCollapsed = () => {
+    if (!collapsed) {
+      document.querySelector(".ant-layout-header").style.width = "95%";
+    } else {
+      document.querySelector(".ant-layout-header").style.width = "84%";
+    }
     setCollapsed(!collapsed);
   };
 
