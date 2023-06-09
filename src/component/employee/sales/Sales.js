@@ -18,10 +18,12 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import LoadingIndicator from "../../../common/loading";
 
 const Sales = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const onFinish = (values) => {
     setData([...data, values]);
@@ -29,12 +31,14 @@ const Sales = () => {
   };
 
   useEffect(() => {
+    setLoading(true);
     const fetchData = async () => {
       try {
         const response = await axios.get(
           "https://63ddb6c1f1af41051b085a9b.mockapi.io/member"
         );
         setData(response.data);
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -122,6 +126,7 @@ const Sales = () => {
 
   return (
     <div className="container_sales">
+      {loading && <LoadingIndicator />}
       <div className="content">
         <h1>Form và Bảng</h1>
         <Form form={form} onFinish={onFinish}>

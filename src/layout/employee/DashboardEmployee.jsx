@@ -10,11 +10,6 @@ const DashboardEmployee = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const toggleCollapsed = () => {
-    if (!collapsed) {
-      document.querySelector(".ant-layout-header").style.width = "95%";
-    } else {
-      document.querySelector(".ant-layout-header").style.width = "84%";
-    }
     setCollapsed(!collapsed);
   };
 
@@ -37,7 +32,6 @@ const DashboardEmployee = ({ children }) => {
         </Sider>
         <Layout
           style={{
-            marginLeft: collapsed ? 80 : 250,
             transition: "margin-left 0.2s",
             minHeight: "100vh",
           }}
@@ -48,6 +42,7 @@ const DashboardEmployee = ({ children }) => {
           />
           <Content
             style={{
+              marginLeft: collapsed ? 80 : 250,
               backgroundColor: "#f8f8f8",
               minHeight: "calc(100vh)",
             }}

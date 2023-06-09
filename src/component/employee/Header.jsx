@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Layout, Input, Badge, Avatar, Menu, Dropdown } from "antd";
+import { Layout, Input, Badge, Avatar, Menu, Dropdown, Switch } from "antd";
 import {
   SearchOutlined,
   BellOutlined,
   UserOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
+  PoweroffOutlined,
+  BulbOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import "./style-header.css";
@@ -28,12 +30,29 @@ const HeaderComponent = ({ collapsed, toggleCollapsed }) => {
     </Menu>
   );
 
+  const [darkMode, setDarkMode] = useState(true);
+
+  const toggleDarkMode = (checked) => {
+    setDarkMode(checked);
+    // const elements = document.querySelectorAll("*");
+    // if (checked) {
+    //   elements.forEach((element) => {
+    //     element.classList.add("dark-mode");
+    //     element.classList.remove("light-mode");
+    //   });
+    // } else {
+    //   elements.forEach((element) => {
+    //     element.classList.remove("dark-mode");
+    //     element.classList.add("light-mode");
+    //   });
+    // }
+  };
+
   return (
     <div className="sticky-header">
-      <Header 
+      <Header
         className={collapsed ? "collapsed" : ""}
         style={{
-          background: "#fff",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -41,6 +60,7 @@ const HeaderComponent = ({ collapsed, toggleCollapsed }) => {
         }}
       >
         <div style={{ display: "flex", alignItems: "center" }}>
+          <div className="title_logo">BeeShoes</div>
           <div
             className="sidebar-toggle"
             onClick={toggleCollapsed}
@@ -69,6 +89,14 @@ const HeaderComponent = ({ collapsed, toggleCollapsed }) => {
           <Badge>
             <BellOutlined style={{ fontSize: 20, marginRight: 16 }} />
           </Badge>
+          <div style={{ marginRight: 16 }}>
+            <Switch
+              checkedChildren={<BulbOutlined />}
+              unCheckedChildren={<PoweroffOutlined />}
+              checked={darkMode}
+              onChange={toggleDarkMode}
+            />
+          </div>
           <Dropdown overlay={userMenu} trigger={["click"]}>
             <Link
               to="/user"
@@ -78,7 +106,7 @@ const HeaderComponent = ({ collapsed, toggleCollapsed }) => {
             >
               <img className="img_avatar" src={AvtDefault} alt="User Avatar" />
               <span
-                style={{ marginLeft: 8, fontWeight: 500, color: "#4f4f4f"}}
+                style={{ marginLeft: 8, fontWeight: 500, color: "#4f4f4f" }}
               >
                 Nguyễn Công Thắng
               </span>

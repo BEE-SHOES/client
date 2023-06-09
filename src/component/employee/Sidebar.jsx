@@ -13,6 +13,10 @@ import {
   faTags,
   faUser,
   faFlask,
+  faArrowsAltV,
+  faCaretUp,
+  faPalette,
+  faExpandArrowsAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
 import Logo from "../../assets/images/logo.png";
@@ -32,41 +36,24 @@ const SidebarComponent = ({ collapsed, toggleCollapsed }) => {
       width={250}
       style={{
         overflow: "auto",
-        height: "100vh",
         position: "fixed",
         left: 0,
       }}
     >
-      <div
-        className="logo"
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "16px",
-        }}
-      >
-        {!collapsed && (
-          <div className="logo__">
-            <img src={Logo} width={150} alt="Logo" />
-          </div>
-        )}
-      </div>
-
       <Menu theme="light" mode="inline">
         <Menu.Item
           key="7"
           className="menu_custom"
           icon={<FontAwesomeIcon icon={faChartBar} />}
         >
-          <Link to="/option7">Thống kê</Link>
+          <Link to="/admin/dashboard">Thống kê</Link>
         </Menu.Item>
         <Menu.Item
           key="5"
           className="menu_custom"
           icon={<FontAwesomeIcon icon={faShoppingCart} />}
         >
-          <Link to="/option5">Bán hàng tại quầy</Link>
+          <Link to="/admin/sales">Bán hàng tại quầy</Link>
         </Menu.Item>
         <Menu.Item
           key="6"
@@ -92,6 +79,21 @@ const SidebarComponent = ({ collapsed, toggleCollapsed }) => {
           </Menu.Item>
           <Menu.Item key="4" icon={<FontAwesomeIcon icon={faFlask} />}>
             <Link to="/option4">Chất liệu</Link>
+          </Menu.Item>
+          <Menu.Item key="4" icon={<FontAwesomeIcon icon={faArrowsAltV} />}>
+            <Link to="/option4">Độ cao đế</Link>
+          </Menu.Item>
+          <Menu.Item key="4" icon={<FontAwesomeIcon icon={faCaretUp} />}>
+            <Link to="/option4">Cổ giày</Link>
+          </Menu.Item>
+          <Menu.Item key="4" icon={<FontAwesomeIcon icon={faPalette} />}>
+            <Link to="/option4">Màu sắc</Link>
+          </Menu.Item>
+          <Menu.Item
+            key="4"
+            icon={<FontAwesomeIcon icon={faExpandArrowsAlt} />}
+          >
+            <Link to="/option4">Kích thước</Link>
           </Menu.Item>
         </SubMenu>
         <Menu.Item

@@ -3,6 +3,13 @@
   box-shadow: 0 10px 10px rgba(90, 89, 89, 0.255) !important;
 }
 
+.ant-layout-sider {
+  margin: 0;
+  top: 65px;
+  padding-top: 35px;
+  height: 100%;
+}
+
 .logo-container {
   display: flex;
   justify-content: space-between;
