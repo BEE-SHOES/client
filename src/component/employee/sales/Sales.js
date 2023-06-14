@@ -3,16 +3,6 @@ import { Form, Input, Button, Table, Space } from "antd";
 import "./style.css";
 import axios from "axios";
 import {
-  faChartBar,
-  faShoppingCart,
-  faReceipt,
-  faGift,
-  faUserTie,
-  faCubes,
-  faTrademark,
-  faTags,
-  faUser,
-  faFlask,
   faEdit,
   faTrashAlt,
   faInfoCircle,
@@ -48,17 +38,14 @@ const Sales = () => {
   }, []);
 
   const handleDetail = (record) => {
-    // Xử lý logic khi nhấp vào nút Chi tiết
     console.log("Chi tiết", record);
   };
 
   const handleUpdate = (record) => {
-    // Xử lý logic khi nhấp vào nút Cập nhật
     console.log("Cập nhật", record);
   };
 
   const handleRemove = (record) => {
-    // Xử lý logic khi nhấp vào nút Xóa
     console.log("Xóa", record);
   };
 
