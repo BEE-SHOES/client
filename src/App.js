@@ -7,9 +7,9 @@ import { AppConfig } from "./AppConfig";
 import { Suspense } from "react";
 import AuthGuard from "./guard/AuthGuard";
 import DashboardEmployee from "./layout/employee/DashboardEmployee";
-import Sales from "./component/employee/sales/Sales";
+import Sales from "./pages/employee/sales/Sales";
+import Dashboard from "./pages/employee/dashboard/Dashboard";
 import LoadingIndicator from "./common/loading";
-import Dashboard from "./component/employee/dashboard/Dashboard";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -40,7 +40,9 @@ function App() {
               path="/admin/dashboard"
               element={
                 <AuthGuard>
-                  <DashboardEmployee></DashboardEmployee>
+                  <DashboardEmployee>
+                    <Dashboard />
+                  </DashboardEmployee>
                 </AuthGuard>
               }
             />
